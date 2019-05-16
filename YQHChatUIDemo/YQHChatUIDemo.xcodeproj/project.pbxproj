@@ -1,0 +1,697 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1D0004EF228D252E00D17690 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D0004EE228D252E00D17690 /* AppDelegate.m */; };
+		1D0004F2228D252E00D17690 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D0004F1228D252E00D17690 /* ViewController.m */; };
+		1D0004F5228D252E00D17690 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D0004F3228D252E00D17690 /* Main.storyboard */; };
+		1D0004F7228D252F00D17690 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D0004F6228D252F00D17690 /* Assets.xcassets */; };
+		1D0004FA228D252F00D17690 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D0004F8228D252F00D17690 /* LaunchScreen.storyboard */; };
+		1D0004FD228D252F00D17690 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D0004FC228D252F00D17690 /* main.m */; };
+		1D000507228D252F00D17690 /* YQHChatUIDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D000506228D252F00D17690 /* YQHChatUIDemoTests.m */; };
+		1D000512228D252F00D17690 /* YQHChatUIDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D000511228D252F00D17690 /* YQHChatUIDemoUITests.m */; };
+		5E9A0416B138CEDB1EFC3328 /* Pods_YQHChatUIDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 187D62417A42E7A11B6A14BB /* Pods_YQHChatUIDemoTests.framework */; };
+		B7875A0D26D8F95459D62E4E /* Pods_YQHChatUIDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79490335E95C5D259F604800 /* Pods_YQHChatUIDemo.framework */; };
+		E68F3EDAC112A733182FBF4A /* Pods_YQHChatUIDemoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F30E28DCB8D0B6E831325190 /* Pods_YQHChatUIDemoUITests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1D000503228D252F00D17690 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1D0004E2228D252E00D17690 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1D0004E9228D252E00D17690;
+			remoteInfo = YQHChatUIDemo;
+		};
+		1D00050E228D252F00D17690 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1D0004E2228D252E00D17690 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1D0004E9228D252E00D17690;
+			remoteInfo = YQHChatUIDemo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		187D62417A42E7A11B6A14BB /* Pods_YQHChatUIDemoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YQHChatUIDemoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1C423E587E4390C0394F21A6 /* Pods-YQHChatUIDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YQHChatUIDemo.release.xcconfig"; path = "Target Support Files/Pods-YQHChatUIDemo/Pods-YQHChatUIDemo.release.xcconfig"; sourceTree = "<group>"; };
+		1D0004EA228D252E00D17690 /* YQHChatUIDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YQHChatUIDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D0004ED228D252E00D17690 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		1D0004EE228D252E00D17690 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		1D0004F0228D252E00D17690 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		1D0004F1228D252E00D17690 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		1D0004F4228D252E00D17690 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1D0004F6228D252F00D17690 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1D0004F9228D252F00D17690 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		1D0004FB228D252F00D17690 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1D0004FC228D252F00D17690 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		1D000502228D252F00D17690 /* YQHChatUIDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YQHChatUIDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D000506228D252F00D17690 /* YQHChatUIDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YQHChatUIDemoTests.m; sourceTree = "<group>"; };
+		1D000508228D252F00D17690 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1D00050D228D252F00D17690 /* YQHChatUIDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YQHChatUIDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D000511228D252F00D17690 /* YQHChatUIDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YQHChatUIDemoUITests.m; sourceTree = "<group>"; };
+		1D000513228D252F00D17690 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		23EE2D7815B4DE594460549C /* Pods-YQHChatUIDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YQHChatUIDemoTests.debug.xcconfig"; path = "Target Support Files/Pods-YQHChatUIDemoTests/Pods-YQHChatUIDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
+		29BA0D4850104C34A4E6EAF0 /* Pods-YQHChatUIDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YQHChatUIDemo.debug.xcconfig"; path = "Target Support Files/Pods-YQHChatUIDemo/Pods-YQHChatUIDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		79490335E95C5D259F604800 /* Pods_YQHChatUIDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YQHChatUIDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C25CAD1E43B665F7FE00FAE2 /* Pods-YQHChatUIDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YQHChatUIDemoTests.release.xcconfig"; path = "Target Support Files/Pods-YQHChatUIDemoTests/Pods-YQHChatUIDemoTests.release.xcconfig"; sourceTree = "<group>"; };
+		C7F2F5FEBBF82CFF9DA7DFED /* Pods-YQHChatUIDemoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YQHChatUIDemoUITests.debug.xcconfig"; path = "Target Support Files/Pods-YQHChatUIDemoUITests/Pods-YQHChatUIDemoUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		D6C0D31EDF47B616891A86B4 /* Pods-YQHChatUIDemoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YQHChatUIDemoUITests.release.xcconfig"; path = "Target Support Files/Pods-YQHChatUIDemoUITests/Pods-YQHChatUIDemoUITests.release.xcconfig"; sourceTree = "<group>"; };
+		F30E28DCB8D0B6E831325190 /* Pods_YQHChatUIDemoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YQHChatUIDemoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1D0004E7228D252E00D17690 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B7875A0D26D8F95459D62E4E /* Pods_YQHChatUIDemo.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1D0004FF228D252F00D17690 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5E9A0416B138CEDB1EFC3328 /* Pods_YQHChatUIDemoTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1D00050A228D252F00D17690 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E68F3EDAC112A733182FBF4A /* Pods_YQHChatUIDemoUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1D0004E1228D252E00D17690 = {
+			isa = PBXGroup;
+			children = (
+				1D0004EC228D252E00D17690 /* YQHChatUIDemo */,
+				1D000505228D252F00D17690 /* YQHChatUIDemoTests */,
+				1D000510228D252F00D17690 /* YQHChatUIDemoUITests */,
+				1D0004EB228D252E00D17690 /* Products */,
+				840B3246F096FE0B1C96096A /* Pods */,
+				20CA2192DB8E12231EB83BB6 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		1D0004EB228D252E00D17690 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1D0004EA228D252E00D17690 /* YQHChatUIDemo.app */,
+				1D000502228D252F00D17690 /* YQHChatUIDemoTests.xctest */,
+				1D00050D228D252F00D17690 /* YQHChatUIDemoUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1D0004EC228D252E00D17690 /* YQHChatUIDemo */ = {
+			isa = PBXGroup;
+			children = (
+				1D0004ED228D252E00D17690 /* AppDelegate.h */,
+				1D0004EE228D252E00D17690 /* AppDelegate.m */,
+				1D0004F0228D252E00D17690 /* ViewController.h */,
+				1D0004F1228D252E00D17690 /* ViewController.m */,
+				1D0004F3228D252E00D17690 /* Main.storyboard */,
+				1D0004F6228D252F00D17690 /* Assets.xcassets */,
+				1D0004F8228D252F00D17690 /* LaunchScreen.storyboard */,
+				1D0004FB228D252F00D17690 /* Info.plist */,
+				1D0004FC228D252F00D17690 /* main.m */,
+			);
+			path = YQHChatUIDemo;
+			sourceTree = "<group>";
+		};
+		1D000505228D252F00D17690 /* YQHChatUIDemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				1D000506228D252F00D17690 /* YQHChatUIDemoTests.m */,
+				1D000508228D252F00D17690 /* Info.plist */,
+			);
+			path = YQHChatUIDemoTests;
+			sourceTree = "<group>";
+		};
+		1D000510228D252F00D17690 /* YQHChatUIDemoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				1D000511228D252F00D17690 /* YQHChatUIDemoUITests.m */,
+				1D000513228D252F00D17690 /* Info.plist */,
+			);
+			path = YQHChatUIDemoUITests;
+			sourceTree = "<group>";
+		};
+		20CA2192DB8E12231EB83BB6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				79490335E95C5D259F604800 /* Pods_YQHChatUIDemo.framework */,
+				187D62417A42E7A11B6A14BB /* Pods_YQHChatUIDemoTests.framework */,
+				F30E28DCB8D0B6E831325190 /* Pods_YQHChatUIDemoUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		840B3246F096FE0B1C96096A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				29BA0D4850104C34A4E6EAF0 /* Pods-YQHChatUIDemo.debug.xcconfig */,
+				1C423E587E4390C0394F21A6 /* Pods-YQHChatUIDemo.release.xcconfig */,
+				23EE2D7815B4DE594460549C /* Pods-YQHChatUIDemoTests.debug.xcconfig */,
+				C25CAD1E43B665F7FE00FAE2 /* Pods-YQHChatUIDemoTests.release.xcconfig */,
+				C7F2F5FEBBF82CFF9DA7DFED /* Pods-YQHChatUIDemoUITests.debug.xcconfig */,
+				D6C0D31EDF47B616891A86B4 /* Pods-YQHChatUIDemoUITests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1D0004E9228D252E00D17690 /* YQHChatUIDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1D000516228D252F00D17690 /* Build configuration list for PBXNativeTarget "YQHChatUIDemo" */;
+			buildPhases = (
+				B0110E324C428E4E9E33577B /* [CP] Check Pods Manifest.lock */,
+				1D0004E6228D252E00D17690 /* Sources */,
+				1D0004E7228D252E00D17690 /* Frameworks */,
+				1D0004E8228D252E00D17690 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = YQHChatUIDemo;
+			productName = YQHChatUIDemo;
+			productReference = 1D0004EA228D252E00D17690 /* YQHChatUIDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1D000501228D252F00D17690 /* YQHChatUIDemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1D000519228D252F00D17690 /* Build configuration list for PBXNativeTarget "YQHChatUIDemoTests" */;
+			buildPhases = (
+				753D2A1A71AFA6A93B8A2D8F /* [CP] Check Pods Manifest.lock */,
+				1D0004FE228D252F00D17690 /* Sources */,
+				1D0004FF228D252F00D17690 /* Frameworks */,
+				1D000500228D252F00D17690 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1D000504228D252F00D17690 /* PBXTargetDependency */,
+			);
+			name = YQHChatUIDemoTests;
+			productName = YQHChatUIDemoTests;
+			productReference = 1D000502228D252F00D17690 /* YQHChatUIDemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		1D00050C228D252F00D17690 /* YQHChatUIDemoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1D00051C228D252F00D17690 /* Build configuration list for PBXNativeTarget "YQHChatUIDemoUITests" */;
+			buildPhases = (
+				A557811809217F33C553FD5C /* [CP] Check Pods Manifest.lock */,
+				1D000509228D252F00D17690 /* Sources */,
+				1D00050A228D252F00D17690 /* Frameworks */,
+				1D00050B228D252F00D17690 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1D00050F228D252F00D17690 /* PBXTargetDependency */,
+			);
+			name = YQHChatUIDemoUITests;
+			productName = YQHChatUIDemoUITests;
+			productReference = 1D00050D228D252F00D17690 /* YQHChatUIDemoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1D0004E2228D252E00D17690 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1020;
+				ORGANIZATIONNAME = "杨棋贺";
+				TargetAttributes = {
+					1D0004E9228D252E00D17690 = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
+					1D000501228D252F00D17690 = {
+						CreatedOnToolsVersion = 10.2.1;
+						TestTargetID = 1D0004E9228D252E00D17690;
+					};
+					1D00050C228D252F00D17690 = {
+						CreatedOnToolsVersion = 10.2.1;
+						TestTargetID = 1D0004E9228D252E00D17690;
+					};
+				};
+			};
+			buildConfigurationList = 1D0004E5228D252E00D17690 /* Build configuration list for PBXProject "YQHChatUIDemo" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1D0004E1228D252E00D17690;
+			productRefGroup = 1D0004EB228D252E00D17690 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1D0004E9228D252E00D17690 /* YQHChatUIDemo */,
+				1D000501228D252F00D17690 /* YQHChatUIDemoTests */,
+				1D00050C228D252F00D17690 /* YQHChatUIDemoUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1D0004E8228D252E00D17690 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D0004FA228D252F00D17690 /* LaunchScreen.storyboard in Resources */,
+				1D0004F7228D252F00D17690 /* Assets.xcassets in Resources */,
+				1D0004F5228D252E00D17690 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1D000500228D252F00D17690 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1D00050B228D252F00D17690 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		753D2A1A71AFA6A93B8A2D8F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-YQHChatUIDemoTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A557811809217F33C553FD5C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-YQHChatUIDemoUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B0110E324C428E4E9E33577B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-YQHChatUIDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1D0004E6228D252E00D17690 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D0004F2228D252E00D17690 /* ViewController.m in Sources */,
+				1D0004FD228D252F00D17690 /* main.m in Sources */,
+				1D0004EF228D252E00D17690 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1D0004FE228D252F00D17690 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D000507228D252F00D17690 /* YQHChatUIDemoTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1D000509228D252F00D17690 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D000512228D252F00D17690 /* YQHChatUIDemoUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1D000504228D252F00D17690 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1D0004E9228D252E00D17690 /* YQHChatUIDemo */;
+			targetProxy = 1D000503228D252F00D17690 /* PBXContainerItemProxy */;
+		};
+		1D00050F228D252F00D17690 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1D0004E9228D252E00D17690 /* YQHChatUIDemo */;
+			targetProxy = 1D00050E228D252F00D17690 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		1D0004F3228D252E00D17690 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1D0004F4228D252E00D17690 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		1D0004F8228D252F00D17690 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1D0004F9228D252F00D17690 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1D000514228D252F00D17690 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		1D000515228D252F00D17690 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1D000517228D252F00D17690 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 29BA0D4850104C34A4E6EAF0 /* Pods-YQHChatUIDemo.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = YQHChatUIDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.yangqihe.mobile.YQHChatUIDemo.YQHChatUIDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1D000518228D252F00D17690 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1C423E587E4390C0394F21A6 /* Pods-YQHChatUIDemo.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = YQHChatUIDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.yangqihe.mobile.YQHChatUIDemo.YQHChatUIDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		1D00051A228D252F00D17690 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 23EE2D7815B4DE594460549C /* Pods-YQHChatUIDemoTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = YQHChatUIDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.yangqihe.mobile.YQHChatUIDemo.YQHChatUIDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/YQHChatUIDemo.app/YQHChatUIDemo";
+			};
+			name = Debug;
+		};
+		1D00051B228D252F00D17690 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C25CAD1E43B665F7FE00FAE2 /* Pods-YQHChatUIDemoTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = YQHChatUIDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.yangqihe.mobile.YQHChatUIDemo.YQHChatUIDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/YQHChatUIDemo.app/YQHChatUIDemo";
+			};
+			name = Release;
+		};
+		1D00051D228D252F00D17690 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C7F2F5FEBBF82CFF9DA7DFED /* Pods-YQHChatUIDemoUITests.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = YQHChatUIDemoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.yangqihe.mobile.YQHChatUIDemo.YQHChatUIDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = YQHChatUIDemo;
+			};
+			name = Debug;
+		};
+		1D00051E228D252F00D17690 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D6C0D31EDF47B616891A86B4 /* Pods-YQHChatUIDemoUITests.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = YQHChatUIDemoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.yangqihe.mobile.YQHChatUIDemo.YQHChatUIDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = YQHChatUIDemo;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1D0004E5228D252E00D17690 /* Build configuration list for PBXProject "YQHChatUIDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1D000514228D252F00D17690 /* Debug */,
+				1D000515228D252F00D17690 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1D000516228D252F00D17690 /* Build configuration list for PBXNativeTarget "YQHChatUIDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1D000517228D252F00D17690 /* Debug */,
+				1D000518228D252F00D17690 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1D000519228D252F00D17690 /* Build configuration list for PBXNativeTarget "YQHChatUIDemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1D00051A228D252F00D17690 /* Debug */,
+				1D00051B228D252F00D17690 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1D00051C228D252F00D17690 /* Build configuration list for PBXNativeTarget "YQHChatUIDemoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1D00051D228D252F00D17690 /* Debug */,
+				1D00051E228D252F00D17690 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1D0004E2228D252E00D17690 /* Project object */;
+}
