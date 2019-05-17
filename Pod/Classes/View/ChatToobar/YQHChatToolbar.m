@@ -13,7 +13,7 @@
 #import "YQHEmotionEscape.h"
 #import "YQHEmotionManager.h"
 #import "YQHEmoji.h"
-#import "chatConst.h"
+#import "YQHChatDefine.h"
 
 //水平间距
 const CGFloat horizontalPadding=8.0f;

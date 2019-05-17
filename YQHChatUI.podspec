@@ -2,7 +2,7 @@ Pod::Spec.new do |spec|
 
   spec.name         = "YQHChatUI"
 
-  spec.version      = "0.0.1"
+  spec.version      = "0.0.2"
 
   spec.ios.deployment_target = '8.0'
 
@@ -26,7 +26,9 @@ Pod::Spec.new do |spec|
 
   spec.public_header_files = 'Pod/Classes/**/*.{h}'
 
-  spec.source_files  = "Pod/Classes/**/*"
+  #spec.source_files  = "Pod/Classes/**/*"
+  
+  spec.source_files  = "Pod/Classes/**/*.{h,m,mm}"
 
   spec.private_header_files = ['Pod/Classes/Utils/VoiceConvert/amrwapper/wav.h','Pod/Classes/Utils/VoiceConvert/amrwapper/amrFileCodec.h','Pod/Classes/Utils/VoiceConvert/opencore-amrnb/*.h','Pod/Classes/Utils/VoiceConvert/opencore-amrwb/*.h']
  

@@ -8,7 +8,7 @@
 
 #import "YQHChatContactCell.h"
 #import <SDWebImage/UIImageView+WebCache.h>
-#import "chatConst.h"
+#import "YQHChatDefine.h"
 
 @interface YQHChatContactCell()
 

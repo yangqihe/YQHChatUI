@@ -8,7 +8,7 @@
 
 #import "YQHChatGroupCell.h"
 #import "YQHChatGroupModel.h"
-#import "chatConst.h"
+#import "YQHChatDefine.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 
 @interface YQHChatGroupCell()

@@ -1,13 +1,12 @@
 //
-//  chatConst.h
-//  YQHchatsdkios
+//  YQHChatDefine.h
+//  Pods
 //
-//  Created by 杨棋贺 on 2019/4/3.
-//  Copyright © 2019年 杨棋贺. All rights reserved.
+//  Created by 杨棋贺 on 2019/5/16.
 //
 
-#ifndef chatConst_h
-#define chatConst_h
+#ifndef YQHChatDefine_h
+#define YQHChatDefine_h
 
 
 /*!
@@ -99,8 +98,4 @@ typedef enum {
 #define chatMessageGroupUnknow [UIImage imageNamed:@"chat_group_unknow"]
 
 
-
-
-
-
-#endif /* chatConst_h */
+#endif /* YQHChatDefine_h */

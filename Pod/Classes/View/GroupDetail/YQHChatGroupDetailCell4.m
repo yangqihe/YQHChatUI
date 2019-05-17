@@ -8,7 +8,7 @@
 
 #import "YQHChatGroupDetailCell4.h"
 #import <Masonry/Masonry.h>
-#import "chatConst.h"
+#import "YQHChatDefine.h"
 
 @interface YQHChatGroupDetailCell4()
 

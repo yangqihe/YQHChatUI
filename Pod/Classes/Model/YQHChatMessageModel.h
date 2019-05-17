@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <Masonry/Masonry.h>
-#import "chatConst.h"
+#import "YQHChatDefine.h"
 
 /**
  消息

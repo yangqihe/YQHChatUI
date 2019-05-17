@@ -9,7 +9,7 @@
 #import "YQHChatGroupMemberCell.h"
 #import "YQHChatContactModel.h"
 #import <SDWebImage/UIImageView+WebCache.h>
-#import "chatConst.h"
+#import "YQHChatDefine.h"
 
 @interface YQHChatGroupMemberCell()
 

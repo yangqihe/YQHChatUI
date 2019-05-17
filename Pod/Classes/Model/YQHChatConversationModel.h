@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "chatConst.h"
+#import "YQHChatDefine.h"
 
 @interface YQHChatConversationModel : NSObject
 

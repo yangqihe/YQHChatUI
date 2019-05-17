@@ -10,7 +10,7 @@
 #import "YQHChatGroupModel.h"
 #import "YQHChatContactModel.h"
 #import <Masonry/Masonry.h>
-#import "chatConst.h"
+#import "YQHChatDefine.h"
 
 @interface YQHChatGroupDetailCell1()
 

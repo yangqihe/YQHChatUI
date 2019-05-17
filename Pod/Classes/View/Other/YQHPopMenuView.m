@@ -7,7 +7,7 @@
 //
 
 #import "YQHPopMenuView.h"
-#import "chatConst.h"
+#import "YQHChatDefine.h"
 
 static CGFloat const kCellHeight = 44;
 

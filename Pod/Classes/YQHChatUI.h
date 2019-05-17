@@ -1,9 +1,12 @@
 //
-//  YQHchatsdkios.h
+//  YQHChatUI.h
 //  Pods
 //
-//  Created by 杨棋贺 on 2019/4/9.
+//  Created by 杨棋贺 on 2019/5/16.
 //
+
+#ifndef YQHChatUI_h
+#define YQHChatUI_h
 
 #import <Foundation/Foundation.h>
 
@@ -11,10 +14,7 @@
 #import "YQHContactGroupModel.h"
 #import "YQHChatMessageModel.h"
 #import "YQHChatContactModel.h"
-#import "chatConst.h"
+#import "YQHChatDefine.h"
 #import "YQHPopMenuView.h"
 
-@interface YQHchatsdkios : NSObject
-
-@end
-
+#endif /* YQHChatUI_h */
