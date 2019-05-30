@@ -51,6 +51,7 @@
     self.videoImageView.backgroundColor = [UIColor clearColor];
     self.videoImageView.layer.cornerRadius=5;
     self.videoImageView.layer.masksToBounds=YES;
+    self.imageView.contentMode=UIViewContentModeScaleAspectFill;
     [self.backgroundImageView addSubview:self.videoImageView];
     
     self.videoTagView = [[UIImageView alloc] init];

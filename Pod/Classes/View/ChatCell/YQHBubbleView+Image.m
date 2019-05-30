@@ -41,6 +41,7 @@
     self.imageView.backgroundColor = [UIColor clearColor];
     self.imageView.layer.cornerRadius=5;
     self.imageView.layer.masksToBounds=YES;
+    self.imageView.contentMode=UIViewContentModeScaleAspectFill;
     [self.backgroundImageView addSubview:self.imageView];
     
     //添加的Image和背景图一样大小问题
