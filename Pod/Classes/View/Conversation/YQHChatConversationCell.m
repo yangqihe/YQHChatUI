@@ -139,6 +139,21 @@
     }];
     
     
+
+    //时间
+    self.timeLabel = [[UILabel alloc] init];//WithFrame:CGRectMake(SCREEN_WIDTH-15-32-40, 25, 32+40, 12)
+    self.timeLabel.font = [UIFont fontWithName:@"PingFangSC-Regular" size:12];
+    self.timeLabel.text = @"";
+    self.timeLabel.textAlignment=NSTextAlignmentRight;
+    self.timeLabel.textColor = [UIColor colorWithRed:187/255.0f green:187/255.0f blue:187/255.0f alpha:1.0];//RGB(187, 187, 187);//[UIColor colorWithRed:187/255.0 green:187/255.0 blue:187/255.0 alpha:1/1.0];
+    //self.timeLabel.backgroundColor = [UIColor redColor];
+    [self.contentView addSubview:self.timeLabel];
+    [self.timeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(self.contentView.mas_right).offset(-15);
+        make.top.equalTo(self.contentView.mas_top).offset(23.5);
+        make.width.equalTo(@(80*WidthScale));
+    }];
+    
     //标题
     self.titleLabel = [[UILabel alloc] init];//WithFrame:CGRectMake(CGRectGetMaxX(self.avatarView.frame)+10, 23, SCREEN_WIDTH-215, 15)
     //self.titleLabel.backgroundColor = [UIColor grayColor];
@@ -150,22 +165,8 @@
         make.left.equalTo(self.avatarView1.mas_right).offset(10);
         make.top.equalTo(self.contentView.mas_top).offset(22);
         make.height.equalTo(@19);
-        make.width.equalTo(@(SCREEN_WIDTH-160));
-    }];
-    
-    
-    //时间
-    self.timeLabel = [[UILabel alloc] init];//WithFrame:CGRectMake(SCREEN_WIDTH-15-32-40, 25, 32+40, 12)
-    self.timeLabel.font = [UIFont fontWithName:@"PingFangSC-Regular" size:12];
-    self.timeLabel.text = @"15:30";
-    self.timeLabel.textAlignment=NSTextAlignmentRight;
-    self.timeLabel.textColor = [UIColor colorWithRed:187/255.0f green:187/255.0f blue:187/255.0f alpha:1.0];//RGB(187, 187, 187);//[UIColor colorWithRed:187/255.0 green:187/255.0 blue:187/255.0 alpha:1/1.0];
-    //self.timeLabel.backgroundColor = [UIColor redColor];
-    [self.contentView addSubview:self.timeLabel];
-    [self.timeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(self.contentView.mas_right).offset(-15);
-        make.top.equalTo(self.contentView.mas_top).offset(23.5);
-        make.width.equalTo(@70);
+        //make.width.equalTo(@(SCREEN_WIDTH-175));
+        make.right.equalTo(self.timeLabel.mas_left).offset(-5);
     }];
                                                                
     // 详情

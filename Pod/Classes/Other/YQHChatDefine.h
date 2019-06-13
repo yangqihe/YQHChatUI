@@ -51,6 +51,7 @@ typedef enum {
 } YQHChatMessageType;
 
 
+#define WidthScale [UIScreen mainScreen].bounds.size.width / 375
 
 #define SCREEN_WIDTH         [[UIScreen mainScreen] bounds].size.width
 #define SCREEN_HEIGHT        [[UIScreen mainScreen] bounds].size.height

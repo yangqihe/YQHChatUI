@@ -136,6 +136,15 @@
 @property (nonatomic) YQHChatMessageStatus status;
 
 
+/*!
+ *  附件缩略图下载状态
+ */
+//@property (nonatomic) YQHChatThumbnailDownloadStatus status;
+
+/*!
+ *  附件下载状态
+ */
+//@property (nonatomic) YQHChatDownloadStatus status;
 
 /*!
  *  是否已读
