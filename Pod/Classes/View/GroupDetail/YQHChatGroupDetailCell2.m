@@ -27,8 +27,6 @@
 
 @property (nonatomic, strong) UIView* topStateView;
 
-//@property (nonatomic, strong) UISwitch *topChatConversationSwitch;
-
 @end
 
 @implementation YQHChatGroupDetailCell2
@@ -116,6 +114,46 @@
     }];
     
     
+    
+    
+    
+    UIView *line2=[[UIView alloc] init];//WithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 0.5)
+    [self.contentView addSubview:line2];
+    line2.backgroundColor=[UIColor colorWithRed:244/255.0f green:244/255.0f blue:244/255.0f alpha:1.0];//RGB(244, 244, 244);
+    [line2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.mas_equalTo(SCREEN_WIDTH);
+        make.height.mas_equalTo(0.5);
+        make.left.mas_equalTo(self.contentView.mas_left).offset(15);
+        make.top.mas_equalTo(self.topStateView.mas_bottom).offset(17);
+    }];
+    
+    UILabel *notDisturb = [[UILabel alloc] init];
+    [self.contentView addSubview:notDisturb];
+    notDisturb.text=@"消息免打扰";
+    notDisturb.font=[UIFont systemFontOfSize:15];
+    notDisturb.textColor=[UIColor colorWithRed:51/255.0f green:51/255.0f blue:51/255.0f alpha:1.0];//RGB(51, 51, 51);
+    [notDisturb mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(self.contentView.mas_left).offset(15);
+        make.height.mas_equalTo(31);
+        make.top.mas_equalTo(line2.mas_bottom).offset(17);
+    }];
+    
+    
+    self.notDisturbSwitch = [[UISwitch alloc] init];
+    [self.contentView addSubview:self.notDisturbSwitch];
+    [self.notDisturbSwitch mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.mas_equalTo(51);
+        make.height.mas_equalTo(31);
+        make.right.mas_equalTo(self.contentView.mas_right).offset(-15);
+        make.top.mas_equalTo(line2.mas_bottom).offset(17);
+    }];
+    
+    [self.notDisturbSwitch addTarget:self action:@selector(notDisturbSwitchChanged:) forControlEvents:(UIControlEventValueChanged)];
+    
+    
+    
+    
+    
     UIView *line=[[UIView alloc] init];//WithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 0.5)
     [self.contentView addSubview:line];
     line.backgroundColor=[UIColor colorWithRed:244/255.0f green:244/255.0f blue:244/255.0f alpha:1.0];//RGB(244, 244, 244);
@@ -123,7 +161,7 @@
         make.width.mas_equalTo(SCREEN_WIDTH);
         make.height.mas_equalTo(0.5);
         make.left.mas_equalTo(self.contentView.mas_left).offset(15);
-        make.top.mas_equalTo(self.topChatConversationLabel.mas_bottom).offset(17);
+        make.top.mas_equalTo(notDisturb.mas_bottom).offset(17);
     }];
     
     [self.topChatConversationSwitch addTarget:self action:@selector(switchChanged:) forControlEvents:(UIControlEventValueChanged)];
@@ -172,19 +210,18 @@
     }
 }
 
-//- (void)showHint:(NSString *)hint
-//{
-//    UIView *view = [[UIApplication sharedApplication].delegate window];
-//    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
-//    hud.userInteractionEnabled = NO;
-//    // Configure for text only and offset down
-//    hud.mode = MBProgressHUDModeText;
-//    hud.labelText = hint;
-//    hud.margin = 10.f;
-//    hud.yOffset = 180;
-//    hud.removeFromSuperViewOnHide = YES;
-//    [hud hide:YES afterDelay:2];
-//}
+-(void)notDisturbSwitchChanged:(UISwitch*)btn{
+    if (btn.on) {
+        if (_itemDelegate) {
+            [_itemDelegate itemClick:4];
+        }
+    }else{
+        if (_itemDelegate) {
+            [_itemDelegate itemClick:5];
+        }
+    }
+}
+
 
 -(void)clearHistory{
     if (self.itemDelegate) {

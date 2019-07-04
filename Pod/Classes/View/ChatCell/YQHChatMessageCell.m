@@ -24,6 +24,10 @@
 @property (nonatomic) NSLayoutConstraint *bubbleWithoutNameTopConstraint;
 @property (nonatomic) NSLayoutConstraint *bubbleWithImageConstraint;
 
+@property (nonatomic) NSLayoutConstraint *hasReadWidthConstraint;
+
+@property (strong, nonatomic) UILabel *hasRead;
+
 @end
 
 @implementation YQHChatMessageCell
@@ -47,18 +51,10 @@ static const CGFloat cellMargin=15;
     if (self) {
         self.backgroundColor = [UIColor clearColor];
         
-        //群聊显示姓名  单聊不显示姓名
-//        _nameLabel = [[UILabel alloc] init];
-//        _nameLabel.translatesAutoresizingMaskIntoConstraints = NO;
-//        _nameLabel.backgroundColor = [UIColor clearColor];
-//        _nameLabel.font = [UIFont systemFontOfSize:10];
-//        _nameLabel.textColor = _messageNameColor;
-        //[self.contentView addSubview:_nameLabel];
-        
         [self configureLayoutConstraintsWithModel:model];
         
-        if (self.avatarView1){
-            self.avatarView1.layer.cornerRadius = 20;
+        if (self.avatarView){
+            self.avatarView.layer.cornerRadius = 20;
         }
         if (model.isSender) {
             self.messageTextColor= [UIColor whiteColor];
@@ -125,6 +121,16 @@ static const CGFloat cellMargin=15;
 - (void)configureLayoutConstraintsWithModel:(YQHChatMessageModel*)model
 {
     if (model.isSender) {
+        self.hasRead = [[UILabel alloc] init];
+        self.hasRead.translatesAutoresizingMaskIntoConstraints = NO;
+        self.hasRead.text = @"已读";
+        self.hasRead.textAlignment = NSTextAlignmentCenter;
+        self.hasRead.font = [UIFont systemFontOfSize:12];
+        self.hasRead.hidden = YES;
+        self.hasRead.backgroundColor=[UIColor clearColor];
+        [self.hasRead sizeToFit];
+        [self.contentView addSubview:self.hasRead];
+        
         [self configureSendLayoutConstraints];
     } else {
         [self configureRecvLayoutConstraints];
@@ -134,24 +140,17 @@ static const CGFloat cellMargin=15;
 - (void)configureSendLayoutConstraints
 {
     //avatar view
-    [self addConstraint:[NSLayoutConstraint constraintWithItem:self.avatarView1 attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeTop multiplier:1.0 constant:cellMargin]];
+    [self addConstraint:[NSLayoutConstraint constraintWithItem:self.avatarView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeTop multiplier:1.0 constant:cellMargin]];
     
-    [self addConstraint:[NSLayoutConstraint constraintWithItem:self.avatarView1 attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeRight multiplier:1.0 constant:-YQHMessageCellPadding]];
+    [self addConstraint:[NSLayoutConstraint constraintWithItem:self.avatarView attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeRight multiplier:1.0 constant:-YQHMessageCellPadding]];
     
-    self.avatarWidthConstraint = [NSLayoutConstraint constraintWithItem:self.avatarView1 attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:self.avatarSize];
+    self.avatarWidthConstraint = [NSLayoutConstraint constraintWithItem:self.avatarView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:self.avatarSize];
     [self addConstraint:self.avatarWidthConstraint];
-    [self addConstraint:[NSLayoutConstraint constraintWithItem:self.avatarView1 attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:self.avatarView1 attribute:NSLayoutAttributeWidth multiplier:1.0 constant:0]];
-    
-    
-    //if (_nameLabel.text.length) {
-//        [self addConstraint:[NSLayoutConstraint constraintWithItem:_nameLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeTop multiplier:1.0 constant:0]];
-//
-//        [self addConstraint:[NSLayoutConstraint constraintWithItem:_nameLabel attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.avatarView1 attribute:NSLayoutAttributeLeft multiplier:1.0 constant:-5]];
-    //}
+    [self addConstraint:[NSLayoutConstraint constraintWithItem:self.avatarView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:self.avatarView attribute:NSLayoutAttributeWidth multiplier:1.0 constant:0]];
     
     
     //bubble view
-    [self addConstraint:[NSLayoutConstraint constraintWithItem:self.bubbleView attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.avatarView1 attribute:NSLayoutAttributeLeft multiplier:1.0 constant:-5]];
+    [self addConstraint:[NSLayoutConstraint constraintWithItem:self.bubbleView attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.avatarView attribute:NSLayoutAttributeLeft multiplier:1.0 constant:-5]];
     [self addConstraint:[NSLayoutConstraint constraintWithItem:self.bubbleView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeTop multiplier:1.0 constant:cellMargin]];
     [self addConstraint:[NSLayoutConstraint constraintWithItem:self.bubbleView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0]];
     
@@ -162,30 +161,33 @@ static const CGFloat cellMargin=15;
     [self addConstraint:[NSLayoutConstraint constraintWithItem:self.activity attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.bubbleView attribute:NSLayoutAttributeLeft multiplier:1.0 constant:-YQHMessageCellPadding]];
     
     //hasRead
-    if (_hasRead) {
-        [self addConstraint:[NSLayoutConstraint constraintWithItem:self.hasRead attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.bubbleView attribute:NSLayoutAttributeLeft multiplier:1.0 constant:-5]];
-    }
+
+    //是否已读
+    self.hasReadWidthConstraint = [NSLayoutConstraint constraintWithItem:self.hasRead attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.00 constant:40];
+    
+    [self addConstraint:self.hasReadWidthConstraint];
+    
+    [self addConstraint:[NSLayoutConstraint constraintWithItem:self.hasRead attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:self.hasRead attribute:NSLayoutAttributeWidth multiplier:1.0 constant:0]];
+    
+    [self addConstraint:[NSLayoutConstraint constraintWithItem:self.hasRead attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.bubbleView attribute:NSLayoutAttributeLeft multiplier:1.0 constant:-5]];
+    
+    [self addConstraint:[NSLayoutConstraint constraintWithItem:self.hasRead attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.bubbleView attribute:NSLayoutAttributeCenterY multiplier:1.0 constant:0]];
 }
 
 - (void)configureRecvLayoutConstraints
 {
     //avatar view
-    [self addConstraint:[NSLayoutConstraint constraintWithItem:self.avatarView1 attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeTop multiplier:1.0 constant:cellMargin]];
+    [self addConstraint:[NSLayoutConstraint constraintWithItem:self.avatarView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeTop multiplier:1.0 constant:cellMargin]];
     
-    [self addConstraint:[NSLayoutConstraint constraintWithItem:self.avatarView1 attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeLeft multiplier:1.0 constant:YQHMessageCellPadding]];
+    [self addConstraint:[NSLayoutConstraint constraintWithItem:self.avatarView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeLeft multiplier:1.0 constant:YQHMessageCellPadding]];
     
-    self.avatarWidthConstraint = [NSLayoutConstraint constraintWithItem:self.avatarView1 attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:self.avatarSize];
+    self.avatarWidthConstraint = [NSLayoutConstraint constraintWithItem:self.avatarView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:self.avatarSize];
     [self addConstraint:self.avatarWidthConstraint];
-    [self addConstraint:[NSLayoutConstraint constraintWithItem:self.avatarView1 attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:self.avatarView1 attribute:NSLayoutAttributeWidth multiplier:1.0 constant:0]];
+    [self addConstraint:[NSLayoutConstraint constraintWithItem:self.avatarView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:self.avatarView attribute:NSLayoutAttributeWidth multiplier:1.0 constant:0]];
     
-    //if (_nameLabel.text.length) {
-//        [self addConstraint:[NSLayoutConstraint constraintWithItem:_nameLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeTop multiplier:1.0 constant:0]];
-//
-//        [self addConstraint:[NSLayoutConstraint constraintWithItem:_nameLabel attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.avatarView1 attribute:NSLayoutAttributeRight multiplier:1.0 constant:YQHMessageCellPadding]];
-    //}
     
     //bubble view
-    [self addConstraint:[NSLayoutConstraint constraintWithItem:self.bubbleView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.avatarView1 attribute:NSLayoutAttributeRight multiplier:1.0 constant:5]];
+    [self addConstraint:[NSLayoutConstraint constraintWithItem:self.bubbleView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.avatarView attribute:NSLayoutAttributeRight multiplier:1.0 constant:5]];
     
     [self addConstraint:[NSLayoutConstraint constraintWithItem:self.bubbleView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeTop multiplier:1.0 constant:cellMargin]];
     [self addConstraint:[NSLayoutConstraint constraintWithItem:self.bubbleView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0]];
@@ -199,9 +201,9 @@ static const CGFloat cellMargin=15;
 {
     [super setModel:model];
     //_nameLabel.text = model.nickname;
-    [self.avatarView1 sd_setImageWithURL:[NSURL URLWithString:model.avatarURL] placeholderImage:chatMessageAvatarImageBg];
+    [self.avatarView sd_setImageWithURL:[NSURL URLWithString:model.avatarURL] placeholderImage:chatMessageAvatarImageBg];
     if (self.model.isSender) {
-        _hasRead.hidden = YES;
+        self.hasRead.hidden = YES;
         switch (self.model.status) {
             case YQHMessageStatusDelivering:
             {
@@ -215,14 +217,17 @@ static const CGFloat cellMargin=15;
                 _statusButton.hidden = YES;
                 [_activity stopAnimating];
                 if (self.model.isRead) {
-                    _hasRead.hidden = NO;
+                    self.hasRead.hidden = NO;
                 }
             }
                 break;
             case YQHMessageStatusPending:
-                _statusButton.hidden = YES;
-                [_activity setHidden:NO];
-                [_activity startAnimating];
+//                _statusButton.hidden = YES;
+//                [_activity setHidden:NO];
+//                [_activity startAnimating];
+                [_activity stopAnimating];
+                [_activity setHidden:YES];
+                _statusButton.hidden = NO;
                 break;
             case YQHMessageStatusFailed:
             {
@@ -242,9 +247,9 @@ static const CGFloat cellMargin=15;
 - (void)setAvatarSize:(CGFloat)avatarSize
 {
     _avatarSize = avatarSize;
-    if (self.avatarView1) {
+    if (self.avatarView) {
         [self removeConstraint:self.avatarWidthConstraint];
-        self.avatarWidthConstraint = [NSLayoutConstraint constraintWithItem:self.avatarView1 attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0 constant:self.avatarSize];
+        self.avatarWidthConstraint = [NSLayoutConstraint constraintWithItem:self.avatarView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0 constant:self.avatarSize];
         [self addConstraint:self.avatarWidthConstraint];
     }
 }

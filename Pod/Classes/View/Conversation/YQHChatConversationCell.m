@@ -15,8 +15,7 @@
 //标题
 @property (strong, nonatomic) UILabel *titleLabel;
 
-//小红点
-@property (strong, nonatomic) UIButton *badgeView;
+
 
 //消息
 @property (strong, nonatomic) UILabel *detailLabel;
@@ -138,6 +137,23 @@
         make.top.equalTo(self.contentView.mas_top).offset(10);
     }];
     
+    
+    self.notDisTurbBadgeView=[UIButton new];
+    self.notDisTurbBadgeView.translatesAutoresizingMaskIntoConstraints = NO;
+    self.notDisTurbBadgeView.clipsToBounds = YES;
+    self.notDisTurbBadgeView.backgroundColor = [UIColor colorWithRed:247/255.0 green:64/255.0 blue:64/255.0 alpha:1/1.0];
+    [self.notDisTurbBadgeView setBackgroundImage:[UIImage imageNamed:@"chat_message_dot"] forState:UIControlStateNormal];
+    [self.notDisTurbBadgeView setBackgroundImage:[UIImage imageNamed:@"chat_message_dot"] forState:UIControlStateHighlighted];
+    self.notDisTurbBadgeView.layer.cornerRadius = 4;
+    [self.contentView addSubview:self.notDisTurbBadgeView];
+    
+    [self.notDisTurbBadgeView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(@8);
+        make.height.equalTo(@8);
+        make.right.equalTo(self.avatarView1.mas_right);
+        make.top.equalTo(self.contentView.mas_top).offset(12);
+    }];
+    self.notDisTurbBadgeView.hidden=YES;
     
 
     //时间

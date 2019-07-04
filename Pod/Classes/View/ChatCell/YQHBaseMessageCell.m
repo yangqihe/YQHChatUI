@@ -19,11 +19,13 @@ NSString *const YQHMessageCellIdentifierRecvText = @"YQHMessageCellRecvText";
 NSString *const YQHMessageCellIdentifierRecvVoice = @"YQHMessageCellRecvVoice";
 NSString *const YQHMessageCellIdentifierRecvVideo = @"YQHMessageCellRecvVideo";
 NSString *const YQHMessageCellIdentifierRecvImage = @"YQHMessageCellRecvImage";
+NSString *const YQHMessageCellIdentifierRecvFile = @"YQHMessageCellRecvFile";
 
 NSString *const YQHMessageCellIdentifierSendText = @"YQHMessageCellSendText";
 NSString *const YQHMessageCellIdentifierSendVoice = @"YQHMessageCellSendVoice";
 NSString *const YQHMessageCellIdentifierSendVideo = @"YQHMessageCellSendVideo";
 NSString *const YQHMessageCellIdentifierSendImage = @"YQHMessageCellSendImage";
+NSString *const YQHMessageCellIdentifierSendFile = @"YQHMessageCellSendFile";
 
 @interface YQHBaseMessageCell()
 {
@@ -88,22 +90,23 @@ NSString *const YQHMessageCellIdentifierSendImage = @"YQHMessageCellSendImage";
     _statusButton.hidden = YES;
     [self.contentView addSubview:_statusButton];
     
+    
     _bubbleView = [[YQHBubbleView alloc] initWithMargin:isSender?_rightBubbleMargin:_leftBubbleMargin isSender:isSender];
     _bubbleView.translatesAutoresizingMaskIntoConstraints = NO;
     _bubbleView.textLabel.font = _messageTextFont;
     [self.contentView addSubview:_bubbleView];
     if (isSender) {
-        _bubbleView.textLabel.textColor = [UIColor colorWithRed:51/255.0 green:51/255.0 blue:51/255.0 alpha:1.0];//RGB(51, 51, 51);
+        _bubbleView.textLabel.textColor = [UIColor colorWithRed:51/255.0 green:51/255.0 blue:51/255.0 alpha:1.0];
     }else{
         _bubbleView.textLabel.textColor = [UIColor whiteColor];
     }
     
-    _avatarView1 = [[UIImageView alloc] init];
-    _avatarView1.translatesAutoresizingMaskIntoConstraints = NO;
-    _avatarView1.backgroundColor = [UIColor clearColor];
-    _avatarView1.clipsToBounds = YES;
-    _avatarView1.userInteractionEnabled = YES;
-    [self.contentView addSubview:_avatarView1];
+    _avatarView = [[UIImageView alloc] init];
+    _avatarView.translatesAutoresizingMaskIntoConstraints = NO;
+    _avatarView.backgroundColor = [UIColor clearColor];
+    _avatarView.clipsToBounds = YES;
+    _avatarView.userInteractionEnabled = YES;
+    [self.contentView addSubview:_avatarView];
     
     _activity = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     _activity.translatesAutoresizingMaskIntoConstraints = NO;
@@ -146,7 +149,7 @@ NSString *const YQHMessageCellIdentifierSendImage = @"YQHMessageCellSendImage";
     [_bubbleView addGestureRecognizer:tapRecognizer];
     
     UITapGestureRecognizer *tapRecognizer2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(avatarViewTapAction:)];
-    [_avatarView1 addGestureRecognizer:tapRecognizer2];
+    [_avatarView addGestureRecognizer:tapRecognizer2];
 }
 
 #pragma mark - Setup Constraints
@@ -167,27 +170,30 @@ NSString *const YQHMessageCellIdentifierSendImage = @"YQHMessageCellSendImage";
     self.activtiyWidthConstraint = [NSLayoutConstraint constraintWithItem:self.activity attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:self.activitySize];
     [self addConstraint:self.activtiyWidthConstraint];
     [self addConstraint:[NSLayoutConstraint constraintWithItem:self.activity attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:self.activity attribute:NSLayoutAttributeWidth multiplier:1.0 constant:0]];
-    [self addConstraint:[NSLayoutConstraint constraintWithItem:self.activity attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeCenterY multiplier:1.0 constant:0]];
+    [self addConstraint:[NSLayoutConstraint constraintWithItem:self.activity attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.bubbleView attribute:NSLayoutAttributeCenterY multiplier:1.0 constant:0]];
     
     [self _updateHasReadWidthConstraint];
     
-    if (self.hasRead) {
-        [self addConstraint:[NSLayoutConstraint constraintWithItem:self.hasRead attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeCenterY multiplier:1.0 constant:0]];
-        [self addConstraint:[NSLayoutConstraint constraintWithItem:self.hasRead attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:self.statusButton attribute:NSLayoutAttributeWidth multiplier:1.0 constant:0]];
-        //    [self addConstraint:[NSLayoutConstraint constraintWithItem:self.hasRead attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:self.activity attribute:NSLayoutAttributeWidth multiplier:1.0 constant:0]];
-    }
+    //self.hasRead.text=@"已读";
+    //if (self.hasRead) {
+        //[self addConstraint:[NSLayoutConstraint constraintWithItem:self.hasRead attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeCenterY multiplier:1.0 constant:0]];
+        //[self addConstraint:[NSLayoutConstraint constraintWithItem:self.hasRead attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:self.statusButton attribute:NSLayoutAttributeWidth multiplier:1.0 constant:0]];
+        //[self addConstraint:[NSLayoutConstraint constraintWithItem:self.hasRead attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:self.activity attribute:NSLayoutAttributeWidth multiplier:1.0 constant:0]];
+        //[self addConstraint:[NSLayoutConstraint constraintWithItem:self.hasRead attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.bubbleView attribute:NSLayoutAttributeLeft multiplier:1.0 constant:-10]];
+    //}
 }
 
 #pragma mark - Update Constraint
 
 - (void)_updateHasReadWidthConstraint
 {
-    if (_hasRead) {
-        [self removeConstraint:self.hasReadWidthConstraint];
+    //if (_hasRead) {
         
-        self.hasReadWidthConstraint = [NSLayoutConstraint constraintWithItem:_hasRead attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0 constant:40];
-        [self addConstraint:self.hasReadWidthConstraint];
-    }
+//        [self removeConstraint:self.hasReadWidthConstraint];
+//
+//        self.hasReadWidthConstraint = [NSLayoutConstraint constraintWithItem:_hasRead attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0 constant:40];
+//        [self addConstraint:self.hasReadWidthConstraint];
+    //}
 }
 
 - (void)_updateStatusButtonWidthConstraint
@@ -535,6 +541,8 @@ NSString *const YQHMessageCellIdentifierSendImage = @"YQHMessageCellSendImage";
                 break;
             case YQHChatMessageVoiceType:
                 cellIdentifier = YQHMessageCellIdentifierSendVoice;
+            case YQHChatMessageFileType:
+                cellIdentifier = YQHMessageCellIdentifierSendFile;
                 break;
             default:
                 break;
@@ -553,6 +561,8 @@ NSString *const YQHMessageCellIdentifierSendImage = @"YQHMessageCellSendImage";
                 break;
             case YQHChatMessageVoiceType:
                 cellIdentifier = YQHMessageCellIdentifierRecvVoice;
+            case YQHChatMessageFileType:
+                cellIdentifier = YQHMessageCellIdentifierRecvFile;
                 break;
             default:
                 break;

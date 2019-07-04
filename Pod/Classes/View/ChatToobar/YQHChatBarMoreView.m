@@ -37,6 +37,7 @@ const CGFloat btnWidth=45.0f;
 @property (nonatomic, strong) UIScrollView *scrollview;
 @property (nonatomic, strong) UIPageControl *pageControl;
 
+@property (nonatomic, strong) YQHChatMenuButton *menuButton;
 @property (nonatomic, strong) YQHChatMenuButton *photoButton;
 @property (nonatomic, strong) YQHChatMenuButton *takePicButton;
 @property (nonatomic, strong) YQHChatMenuButton *takeVideoButton;
@@ -44,7 +45,7 @@ const CGFloat btnWidth=45.0f;
 @property (nonatomic, strong) UIButton *videoButton;
 @property (nonatomic, strong) UIButton *audioCallButton;
 @property (nonatomic, strong) UIButton *videoCallButton;
-
+@property (nonatomic, strong) UIButton *fileButton;
 @end
 
 @implementation YQHChatBarMoreView
@@ -83,27 +84,50 @@ const CGFloat btnWidth=45.0f;
     _pageControl.numberOfPages = 1;
     [self addSubview:_pageControl];
     
-    CGFloat insets = (self.frame.size.width - 3 * btnWidth) / 6;
+    int itemCount=4;
+    
+    CGFloat width=61;
+    
+    CGFloat insets = (self.frame.size.width - itemCount * btnWidth) / (itemCount*2);
     
     __weak __typeof(&*self)weakSelf = self;
-     _takePicButton=[[YQHChatMenuButton alloc]initWithFrame:CGRectMake(insets,10, 61, 61) withImage:[UIImage imageNamed:@"photo"] withHightImage:nil withText:@"拍摄" withClickBlock:^{
-         [weakSelf takePicAction];
-    }];
-    //_photoButton.tag = MOREVIEW_BUTTON_TAG;
-    [_scrollview addSubview:_takePicButton];
     
+    NSArray *imageArray=[NSArray arrayWithObjects:@"photo",@"image",@"video",@"chat_file_icon", nil];
+    NSArray *nameArray=[NSArray arrayWithObjects:@"拍摄",@"图片",@"视频",@"文件", nil];
     
-    _photoButton=[[YQHChatMenuButton alloc]initWithFrame:CGRectMake(insets * 3 + btnWidth, 10, 61, 61) withImage:[UIImage imageNamed:@"image"] withHightImage:nil withText:@"图片" withClickBlock:^{
-        [weakSelf photoAction];
-    }];
-    //_takePicButton.tag = MOREVIEW_BUTTON_TAG + 2;
-    [_scrollview addSubview:_photoButton];
+    for (int i=0; i<itemCount; i++) {
+        int n=(2*i+1);
+        _menuButton=[[YQHChatMenuButton alloc]initWithFrame:CGRectMake(insets*n + btnWidth*i , 10, width, width) withImage:[UIImage imageNamed:imageArray[i]] withHightImage:nil withText:nameArray[i] withClickBlock:^{
+            [weakSelf menuClick:i];
+        }];
+        _menuButton.tag=i;
+        [_scrollview addSubview:_menuButton];
+    }
     
-    
-    _takeVideoButton =[[YQHChatMenuButton alloc]initWithFrame:CGRectMake(insets * 5 + btnWidth*2, 10, 61, 61) withImage:[UIImage imageNamed:@"video"] withHightImage:nil withText:@"视频" withClickBlock:^{
-        [weakSelf takeVideoAction];
-    }];
-    [_scrollview addSubview:_takeVideoButton];
+//     _takePicButton=[[YQHChatMenuButton alloc]initWithFrame:CGRectMake(insets,10, width, width) withImage:[UIImage imageNamed:@"photo"] withHightImage:nil withText:@"拍摄" withClickBlock:^{
+//         [weakSelf takePicAction];
+//    }];
+//
+//    [_scrollview addSubview:_takePicButton];
+//
+//
+//    _photoButton=[[YQHChatMenuButton alloc]initWithFrame:CGRectMake(insets * 3 + btnWidth, 10, width, width) withImage:[UIImage imageNamed:@"image"] withHightImage:nil withText:@"图片" withClickBlock:^{
+//        [weakSelf photoAction];
+//    }];
+//
+//    [_scrollview addSubview:_photoButton];
+//
+//
+//    _takeVideoButton =[[YQHChatMenuButton alloc]initWithFrame:CGRectMake(insets * 5 + btnWidth*2, 10, width, width) withImage:[UIImage imageNamed:@"video"] withHightImage:nil withText:@"视频" withClickBlock:^{
+//        [weakSelf takeVideoAction];
+//    }];
+//    [_scrollview addSubview:_takeVideoButton];
+//
+//
+//    _fileButton =[[YQHChatMenuButton alloc]initWithFrame:CGRectMake(insets * 7 + btnWidth*3, 10, width, width) withImage:[UIImage imageNamed:@"chat_file_icon"] withHightImage:nil withText:@"文件" withClickBlock:^{
+//        [weakSelf fileAction];
+//    }];
+//    [_scrollview addSubview:_fileButton];
     
     CGRect frame = self.frame;
     _scrollview.frame = CGRectMake(0, 0, CGRectGetWidth(frame), CGRectGetHeight(frame));
@@ -111,6 +135,25 @@ const CGFloat btnWidth=45.0f;
     _pageControl.hidden = _pageControl.numberOfPages<=1;
 }
 
+-(void)menuClick:(int)tag{
+    switch (tag) {
+        case 0:
+            [self takePicAction];
+            break;
+        case 1:
+            [self photoAction];
+            break;
+        case 2:
+            [self takeVideoAction];
+            break;
+        case 3:
+            [self fileAction];
+            break;
+            
+        default:
+            break;
+    }
+}
 
 #pragma mark - UIScrollViewDelegate
 
@@ -144,6 +187,13 @@ const CGFloat btnWidth=45.0f;
 {
     if (_delegate && [_delegate respondsToSelector:@selector(moreViewVideoAction:)]) {
         [_delegate moreViewVideoAction:self];
+    }
+}
+
+- (void)fileAction
+{
+    if (_delegate && [_delegate respondsToSelector:@selector(moreViewFileAction:)]) {
+        [_delegate moreViewFileAction:self];
     }
 }
 

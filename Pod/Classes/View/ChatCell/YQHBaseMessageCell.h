@@ -16,7 +16,7 @@
 @interface YQHBaseMessageCell : UITableViewCell
 {
     UIButton *_statusButton;
-    UILabel *_hasRead;
+    //UILabel *_hasRead;
     YQHBubbleView *_bubbleView;
     UIActivityIndicatorView *_activity;
     NSLayoutConstraint *_statusWidthConstraint;
@@ -26,7 +26,7 @@
 
 @property (nonatomic, strong) UIActivityIndicatorView *activity;
 
-@property (strong, nonatomic) UIImageView *avatarView1;
+@property (strong, nonatomic) UIImageView *avatarView;
 
 @property (strong, nonatomic) UIButton *statusButton;
 

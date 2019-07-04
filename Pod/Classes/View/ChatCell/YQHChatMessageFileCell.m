@@ -1,21 +1,15 @@
 //
-//  YQHChatMessageImageCell.m
-//  家校共享
+//  YQHChatMessageFileCell.m
+//  AFNetworking
 //
-//  Created by 杨棋贺 on 2019/3/19.
-//  Copyright © 2019年 mac. All rights reserved.
+//  Created by 杨棋贺 on 2019/6/27.
 //
 
-#import "YQHChatMessageImageCell.h"
+#import "YQHChatMessageFileCell.h"
 #import "YQHChatMessageModel.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 
-//#define chatSendBubbleBg [[UIImage imageNamed:@"chat_sender_bubble"] stretchableImageWithLeftCapWidth:25 topCapHeight:25]
-
-//#define chatReceiverBubbleBg [[UIImage imageNamed:@"chat_receiver_bubble"] stretchableImageWithLeftCapWidth:25 topCapHeight:25]
-
-@interface YQHChatMessageImageCell()
-
+@interface YQHChatMessageFileCell()
 
 @property (nonatomic, strong) UIActivityIndicatorView *activity;
 @property (strong, nonatomic) UIButton *statusButton;
@@ -36,10 +30,13 @@
 @property (nonatomic) NSLayoutConstraint *statusWidthConstraint;
 @property (nonatomic) NSLayoutConstraint *hasReadWidthConstraint;
 
-
 @end
 
-@implementation YQHChatMessageImageCell
+@implementation YQHChatMessageFileCell
+
+//#define chatSendBubbleBg [[UIImage imageNamed:@"chat_sender_bubble"] stretchableImageWithLeftCapWidth:25 topCapHeight:25]
+
+//#define chatReceiverBubbleBg [[UIImage imageNamed:@"chat_receiver_bubble"] stretchableImageWithLeftCapWidth:25 topCapHeight:25]
 
 static const CGFloat cellMargin=15;
 
@@ -95,21 +92,15 @@ static const CGFloat cellMargin=15;
     _bubbleView = [[YQHBubbleView alloc] initWithMargin:isSender?_rightBubbleMargin:_leftBubbleMargin isSender:isSender];
     [self.contentView addSubview:_bubbleView];
     _bubbleView.backgroundColor=[UIColor clearColor];
+    //_bubbleView.backgroundColor=[UIColor grayColor];
     _bubbleView.translatesAutoresizingMaskIntoConstraints = NO;
-    //_bubbleView.textLabel.font = [UIFont systemFontOfSize:15];
     
-    //_bubbleView.backgroundColor=[UIColor greenColor];
-    //_bubbleView.layer.cornerRadius=10;
+    [_bubbleView setupFileBubbleView];
     
-    if (model.chatMessageType==YQHChatMessageImageType) {
-        [_bubbleView setupImageBubbleView];
-    }else{
-        [_bubbleView setupVideoBubbleView];
-        _bubbleView.videoTagView.image = chatMessageVedioBg;
-    }
     
     if (isSender) {
-        _bubbleView.textLabel.textColor = [UIColor colorWithRed:51/255.0 green:51/255.0 blue:51/255.0 alpha:1.0];
+        _bubbleView.fileNameLabel.textColor = [UIColor whiteColor];
+        _bubbleView.fileSizeLabel.textColor = [UIColor whiteColor];
         
         _activity = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
         _activity.translatesAutoresizingMaskIntoConstraints = NO;
@@ -139,18 +130,19 @@ static const CGFloat cellMargin=15;
         [self configureSendLayoutConstraints];
         
     }else{
-        _bubbleView.textLabel.textColor = [UIColor whiteColor];
+        _bubbleView.fileNameLabel.textColor = [UIColor colorWithRed:51/255.0 green:51/255.0 blue:51/255.0 alpha:1.0];
+        _bubbleView.fileSizeLabel.textColor = [UIColor colorWithRed:153/255.0 green:153/255.0 blue:153/255.0 alpha:1/1.0];
         
-         [self configureRecvLayoutConstraints];
+        [self configureRecvLayoutConstraints];
     }
     
     
-
-
+    
+    
     if (model.isSender) {
         
     } else {
-       
+        
     }
     
     UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(bubbleViewTapAction:)];
@@ -176,9 +168,9 @@ static const CGFloat cellMargin=15;
     
     //姓名
     //if (self.isShowName) {
-        [self addConstraint:[NSLayoutConstraint constraintWithItem:_nameLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeTop multiplier:1.0 constant:0]];
-        
-        [self addConstraint:[NSLayoutConstraint constraintWithItem:_nameLabel attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.avatarView attribute:NSLayoutAttributeLeft multiplier:1.0 constant:-5]];
+    [self addConstraint:[NSLayoutConstraint constraintWithItem:_nameLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeTop multiplier:1.0 constant:0]];
+    
+    [self addConstraint:[NSLayoutConstraint constraintWithItem:_nameLabel attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.avatarView attribute:NSLayoutAttributeLeft multiplier:1.0 constant:-5]];
     //}
     
     //气泡 NSLayoutRelationLessThanOrEqual
@@ -218,7 +210,7 @@ static const CGFloat cellMargin=15;
     //是否已读
     self.hasReadWidthConstraint = [NSLayoutConstraint constraintWithItem:self.hasRead attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.00 constant:40];
     
-     [self addConstraint:self.hasReadWidthConstraint];
+    [self addConstraint:self.hasReadWidthConstraint];
     
     [self addConstraint:[NSLayoutConstraint constraintWithItem:self.hasRead attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:self.hasRead attribute:NSLayoutAttributeWidth multiplier:1.0 constant:0]];
     
@@ -241,11 +233,11 @@ static const CGFloat cellMargin=15;
     
     //姓名
     //if (self.isShowName) {
-        [self addConstraint:[NSLayoutConstraint constraintWithItem:_nameLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeTop multiplier:1.0 constant:0]];
-        
-        [self addConstraint:[NSLayoutConstraint constraintWithItem:_nameLabel attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.avatarView attribute:NSLayoutAttributeRight multiplier:1.0 constant:YQHMessageCellPadding]];
+    [self addConstraint:[NSLayoutConstraint constraintWithItem:_nameLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeTop multiplier:1.0 constant:0]];
+    
+    [self addConstraint:[NSLayoutConstraint constraintWithItem:_nameLabel attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.avatarView attribute:NSLayoutAttributeRight multiplier:1.0 constant:YQHMessageCellPadding]];
     //}
-
+    
     
     //气泡   NSLayoutRelationLessThanOrEqual
     self.bubbleMaxWidthConstraint = [NSLayoutConstraint constraintWithItem:self.bubbleView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:self.bubbleMaxWidth];
@@ -323,6 +315,29 @@ static const CGFloat cellMargin=15;
     
     _nameLabel.text=_model.nickname;
     
+    NSString *extension=[model.fileLocalPath pathExtension];
+    
+    if ([extension containsString:@"xls"]) {
+        _bubbleView.fileIconView.image = chatFileXsl;
+    }else if ([extension containsString:@"pdf"]){
+        _bubbleView.fileIconView.image = chatFilePdf;
+    }else if ([extension containsString:@"ppt"]){
+        _bubbleView.fileIconView.image = chatFilePpt;
+    }else if ([extension containsString:@"doc"]){
+        _bubbleView.fileIconView.image = chatFileWord;
+    }else{
+        _bubbleView.fileIconView.image = chatFileUnknow;
+    }
+    
+    _bubbleView.fileNameLabel.text = _model.fileName;
+    
+    if (_model.fileLengthDes) {
+        _bubbleView.fileSizeLabel.text = _model.fileLengthDes;//[NSString stringWithFormat:@"%lld",_model.fileLength];
+    }else{
+        _bubbleView.fileSizeLabel.text = @"0 B";
+    }
+    
+    
     if (self.isShowName) {
         _nameLabel.hidden=NO;
     }else{
@@ -347,8 +362,6 @@ static const CGFloat cellMargin=15;
                 [_activity stopAnimating];
                 if (self.model.isRead) {
                     _hasRead.hidden = NO;
-                }else{
-                    _hasRead.hidden = YES;
                 }
             }
                 break;
@@ -356,9 +369,11 @@ static const CGFloat cellMargin=15;
 //                _statusButton.hidden = YES;
 //                [_activity setHidden:NO];
 //                [_activity startAnimating];
+                
                 [_activity stopAnimating];
                 [_activity setHidden:YES];
                 _statusButton.hidden = NO;
+                
                 break;
             case YQHMessageStatusFailed:
             {
@@ -418,7 +433,7 @@ static const CGFloat cellMargin=15;
     _bubbleMargin = bubbleMargin;
     _bubbleMargin = self.model.isSender ? _rightBubbleMargin:_leftBubbleMargin;
     if (_bubbleView) {
-        [_bubbleView updateImageMargin:_bubbleMargin];
+        [_bubbleView updateFileMargin:_bubbleMargin];
     }
 }
 
@@ -457,74 +472,13 @@ static const CGFloat cellMargin=15;
         return model.cellHeight;
     }
     
-    CGFloat height = cellMargin*2;//上下间隙
+    model.cellHeight = 100*WidthScale;
     
-    CGSize retSize = model.fileSize.width?model.fileSize:model.fileThumbnailSize;
+    model.cellBubbleHeight=100*WidthScale;
     
-    CGFloat imgWidth=retSize.width;
-    CGFloat imgHeight=retSize.height;
+    model.cellBubbleWidth=240;
     
-    CGFloat actualWidth=imgWidth;
-    CGFloat actualHeight=imgHeight;
-    
-    if (retSize.width == 0 || retSize.height == 0||imgWidth==imgHeight) {
-        
-        actualWidth = ChatMessageImageWidth;
-        actualHeight = ChatMessageImageHeight;
-        
-    }else if(imgWidth>imgHeight){
-        
-        //宽 大于 高
-        
-        if (imgWidth > ChatMessageImageMaxWidth) {
-            
-            actualWidth = ChatMessageImageMaxWidth;
-            
-        }else if(imgWidth<ChatMessageImageMinWidth){
-            
-            actualWidth =ChatMessageImageMinWidth;
-            
-        }
-        
-        actualHeight = imgHeight * actualWidth/imgWidth;
-        
-        if (actualHeight<ChatMessageImageMinHeight) {
-            
-            actualHeight = ChatMessageImageMinHeight;
-            
-        }
-        
-    }else{
-        
-        //高 大于 宽
-        if(imgHeight > ChatMessageImageMaxHeight){
-            
-            actualHeight = ChatMessageImageMaxHeight;
-            
-        }else if(imgHeight<ChatMessageImageMinHeight){
-            
-            actualHeight = ChatMessageImageMinHeight;
-            
-        }
-        
-        actualWidth =  imgWidth * actualHeight/imgHeight;
-        
-        if (actualWidth<ChatMessageImageMinWidth) {
-            
-            actualWidth = ChatMessageImageMinWidth;
-            
-        }
-        
-    }
-        
-    height += actualHeight;
-    
-    model.cellHeight = height;
-    
-    model.cellBubbleHeight=actualHeight;
-    model.cellBubbleWidth=actualWidth;
-    
-    return height;
+    return model.cellHeight;
 }
 
 @end

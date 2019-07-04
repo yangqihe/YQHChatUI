@@ -12,7 +12,7 @@
 
 @optional
 
-//1代表聊天置顶 2代表聊天不置顶 3代表清空记录
+//1代表聊天置顶 2代表聊天不置顶 3代表清空记录   4  代表消息正常接收  5代表消息免打扰
 -(void)itemClick:(int)index;
 
 @end
@@ -25,6 +25,8 @@
 @property (nonatomic, weak)  id<YQHGroupItemDelegate> itemDelegate;
 
 @property (nonatomic, strong) UISwitch *topChatConversationSwitch;
+
+@property (nonatomic, strong) UISwitch *notDisturbSwitch;
 
 @end
 

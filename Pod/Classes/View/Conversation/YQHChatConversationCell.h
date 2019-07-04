@@ -14,6 +14,11 @@
 
 @property (strong, nonatomic) YQHChatConversationModel *model;
 
+//小红点
+@property (strong, nonatomic) UIButton *badgeView;
+
+@property (strong, nonatomic) UIButton *notDisTurbBadgeView;
+
 //头像
 //@property (strong, nonatomic) UIImageView *avatarView;
 

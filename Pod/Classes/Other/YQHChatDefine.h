@@ -99,4 +99,11 @@ typedef enum {
 #define chatMessageGroupUnknow [UIImage imageNamed:@"chat_group_unknow"]
 
 
+
+#define chatFileXsl [UIImage imageNamed:@"chat_file_xsl"]
+#define chatFilePdf [UIImage imageNamed:@"chat_file_pdf"]
+#define chatFilePpt [UIImage imageNamed:@"chat_file_ppt"]
+#define chatFileWord [UIImage imageNamed:@"chat_file_word"]
+#define chatFileUnknow [UIImage imageNamed:@"chat_file_unknow"]
+
 #endif /* YQHChatDefine_h */

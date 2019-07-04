@@ -58,6 +58,11 @@
 @property (nonatomic, copy) NSString *avatarLocalPath;
 
 
+/**
+ 文件的名称
+ */
+@property (strong, nonatomic) NSString *fileName;
+
 /*!
  *  文件URL路径
  */
@@ -79,7 +84,7 @@
 @property (strong, nonatomic) NSString *fileThumbnailLocalPath;
 
 /**
- 文件大小
+ 文件尺寸大小
  */
 @property (nonatomic) CGSize fileSize;
 
@@ -94,6 +99,15 @@
  */
 @property (strong, nonatomic) NSString *fileExt;
 
+/**
+ 文件长度的大小
+ */
+@property (nonatomic) long long fileLength;
+
+/**
+ 文件长度的大小
+ */
+@property (nonatomic,copy) NSString *fileLengthDes;
 
 /*!
  *  发送方

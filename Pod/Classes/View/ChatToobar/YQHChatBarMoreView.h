@@ -30,6 +30,8 @@ typedef enum{
 - (void)moreViewTakePicAction:(YQHChatBarMoreView *)moreView;
 - (void)moreViewPhotoAction:(YQHChatBarMoreView *)moreView;
 - (void)moreViewVideoAction:(YQHChatBarMoreView *)moreView;
+- (void)moreViewFileAction:(YQHChatBarMoreView *)moreView;
+
 
 - (void)moreViewLocationAction:(YQHChatBarMoreView *)moreView;
 - (void)moreViewAudioCallAction:(YQHChatBarMoreView *)moreView;
