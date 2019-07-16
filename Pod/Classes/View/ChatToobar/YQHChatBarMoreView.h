@@ -19,7 +19,9 @@ typedef enum{
 
 @property (nonatomic,assign) id<YQHChatBarMoreViewDelegate> delegate;
 
-- (instancetype)initWithFrame:(CGRect)frame type:(YQHChatToolbarType)type;
+//- (instancetype)initWithFrame:(CGRect)frame type:(YQHChatToolbarType)type;
+
+- (instancetype)initWithFrame:(CGRect)frame type:(YQHChatToolbarType)type imageArray:(NSArray*)imageArray nameArray:(NSArray*)nameArray;
 
 @end
 

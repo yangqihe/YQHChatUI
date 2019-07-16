@@ -366,13 +366,13 @@ static const CGFloat cellMargin=15;
             }
                 break;
             case YQHMessageStatusPending:
-//                _statusButton.hidden = YES;
-//                [_activity setHidden:NO];
-//                [_activity startAnimating];
+                _statusButton.hidden = YES;
+                [_activity setHidden:NO];
+                [_activity startAnimating];
                 
-                [_activity stopAnimating];
-                [_activity setHidden:YES];
-                _statusButton.hidden = NO;
+//                [_activity stopAnimating];
+//                [_activity setHidden:YES];
+//                _statusButton.hidden = NO;
                 
                 break;
             case YQHMessageStatusFailed:

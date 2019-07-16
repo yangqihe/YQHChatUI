@@ -45,7 +45,7 @@
 @property (strong, nonatomic) UIView *recordView;
 
 - (instancetype)initWithFrame:(CGRect)frame
-type:(YQHChatToolbarType)type;
+type:(YQHChatToolbarType)type imageArray:(NSArray*)imageArray nameArray:(NSArray*)nameArray;;
 
 /**
  *  Initializa chat bar

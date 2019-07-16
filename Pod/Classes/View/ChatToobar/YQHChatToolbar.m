@@ -40,6 +40,8 @@ const CGFloat inputViewMaxHeight=150.0f;
 @property (nonatomic) CGFloat previousTextViewContentHeight;//上一次inputTextView的contentSize.height
 @property (nonatomic) NSLayoutConstraint *inputViewWidthItemsLeftConstraint;
 @property (nonatomic) NSLayoutConstraint *inputViewWidthoutItemsLeftConstraint;
+@property (nonatomic, strong) NSArray *imageArray;
+@property (nonatomic, strong) NSArray *nameArray;
 
 @end
 
@@ -49,15 +51,15 @@ const CGFloat inputViewMaxHeight=150.0f;
 @synthesize moreView = _moreView;
 @synthesize recordView = _recordView;
 
-- (instancetype)initWithFrame:(CGRect)frame
-{
-    self = [self initWithFrame:frame type:YQHChatToolbarTypeGroup];
-    if (self) {
-        
-    }
-    
-    return self;
-}
+//- (instancetype)initWithFrame:(CGRect)frame
+//{
+//    self = [self initWithFrame:frame type:YQHChatToolbarTypeGroup ima];
+//    if (self) {
+//
+//    }
+//
+//    return self;
+//}
 
 
 + (CGFloat)defaultHeight
@@ -65,11 +67,14 @@ const CGFloat inputViewMaxHeight=150.0f;
     return verticalPadding * 2 + inputViewMinHeight;
 }
 
-- (instancetype)initWithFrame:(CGRect)frame type:(YQHChatToolbarType)type
+- (instancetype)initWithFrame:(CGRect)frame type:(YQHChatToolbarType)type imageArray:(NSArray*)imageArray nameArray:(NSArray*)nameArray;
 {
     frame.size.height=verticalPadding * 2 + inputViewMinHeight;
     self = [super initWithFrame:frame];
     if (self) {
+        _imageArray=imageArray;
+        _nameArray=nameArray;
+        
         _horizontalPadding = horizontalPadding;
         _verticalPadding = verticalPadding;
         _inputViewMinHeight = inputViewMinHeight;
@@ -196,7 +201,7 @@ const CGFloat inputViewMaxHeight=150.0f;
 - (UIView *)moreView
 {
     if (_moreView == nil) {
-        _moreView = [[YQHChatBarMoreView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(_toolbarView.frame), self.frame.size.width, 80) type:self.chatBarType];
+        _moreView = [[YQHChatBarMoreView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(_toolbarView.frame), self.frame.size.width, 80) type:self.chatBarType imageArray:self.imageArray nameArray:self.nameArray];
         _moreView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;
     }
     

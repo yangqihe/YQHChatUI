@@ -46,6 +46,8 @@ const CGFloat btnWidth=45.0f;
 @property (nonatomic, strong) UIButton *audioCallButton;
 @property (nonatomic, strong) UIButton *videoCallButton;
 @property (nonatomic, strong) UIButton *fileButton;
+@property (nonatomic, strong) NSArray *imageArray;
+@property (nonatomic, strong) NSArray *nameArray;
 @end
 
 @implementation YQHChatBarMoreView
@@ -56,12 +58,14 @@ const CGFloat btnWidth=45.0f;
     //YQHChatBarMoreView *moreView = [self appearance];
 }
 
-- (instancetype)initWithFrame:(CGRect)frame type:(YQHChatToolbarType)type
+- (instancetype)initWithFrame:(CGRect)frame type:(YQHChatToolbarType)type imageArray:(NSArray *)imageArray nameArray:(NSArray *)nameArray
 {
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
         _type = type;
+        _imageArray=imageArray;
+        _nameArray=nameArray;
         [self setupSubviewsForType:_type];
     }
     return self;
@@ -84,20 +88,17 @@ const CGFloat btnWidth=45.0f;
     _pageControl.numberOfPages = 1;
     [self addSubview:_pageControl];
     
-    int itemCount=4;
+    int itemCount=self.imageArray.count;
     
     CGFloat width=61;
     
     CGFloat insets = (self.frame.size.width - itemCount * btnWidth) / (itemCount*2);
     
     __weak __typeof(&*self)weakSelf = self;
-    
-    NSArray *imageArray=[NSArray arrayWithObjects:@"photo",@"image",@"video",@"chat_file_icon", nil];
-    NSArray *nameArray=[NSArray arrayWithObjects:@"拍摄",@"图片",@"视频",@"文件", nil];
-    
+        
     for (int i=0; i<itemCount; i++) {
         int n=(2*i+1);
-        _menuButton=[[YQHChatMenuButton alloc]initWithFrame:CGRectMake(insets*n + btnWidth*i , 10, width, width) withImage:[UIImage imageNamed:imageArray[i]] withHightImage:nil withText:nameArray[i] withClickBlock:^{
+        _menuButton=[[YQHChatMenuButton alloc]initWithFrame:CGRectMake(insets*n + btnWidth*i , 10, width, width) withImage:[UIImage imageNamed:self.imageArray[i]] withHightImage:nil withText:self.nameArray[i] withClickBlock:^{
             [weakSelf menuClick:i];
         }];
         _menuButton.tag=i;
