@@ -8,7 +8,7 @@ Pod::Spec.new do |spec|
 
   spec.summary      = "聊天基础界面"
 
-  spec.description  = "聊天基础界面，快速搭建属于自己的聊天界面"
+  spec.description  = "聊天基础界面，快速搭建属于自己的聊天界面。"
                    
   spec.homepage     = "https://github.com/yangqihe/YQHChatUI"
 
