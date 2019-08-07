@@ -37,8 +37,9 @@ static const CGFloat cellMargin=15;
 + (void)initialize
 {
     YQHChatMessageCell *cell = [self appearance];
-    cell.avatarSize = 40;
-    cell.avatarCornerRadius = 20;
+    cell.avatarSize = chatAvatarImageSize;
+    //_avatarSize=45;
+    //cell.avatarCornerRadius = 25;
     if ([UIDevice currentDevice].systemVersion.floatValue >= 8.0) {
         cell.messageNameIsHidden = NO;
     }
@@ -54,7 +55,7 @@ static const CGFloat cellMargin=15;
         [self configureLayoutConstraintsWithModel:model];
         
         if (self.avatarView){
-            self.avatarView.layer.cornerRadius = 20;
+            //self.avatarView.layer.cornerRadius = 25;
         }
         if (model.isSender) {
             self.messageTextColor= [UIColor whiteColor];
@@ -201,7 +202,7 @@ static const CGFloat cellMargin=15;
 {
     [super setModel:model];
     //_nameLabel.text = model.nickname;
-    [self.avatarView sd_setImageWithURL:[NSURL URLWithString:model.avatarURL] placeholderImage:chatMessageAvatarImageBg];
+    [self.avatarView.avatarView sd_setImageWithURL:[NSURL URLWithString:model.avatarURL] placeholderImage:chatMessageAvatarImageBg];
     if (self.model.isSender) {
         self.hasRead.hidden = YES;
         switch (self.model.status) {

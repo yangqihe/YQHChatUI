@@ -52,7 +52,7 @@ static const CGFloat cellMargin=15;
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         self.backgroundColor=[UIColor clearColor];
-        _avatarSize=40;
+        _avatarSize=chatAvatarImageSize;
         _statusSize = 20;
         _activitySize = 20;
         _bubbleMaxWidth = 200;
@@ -76,12 +76,20 @@ static const CGFloat cellMargin=15;
 
 - (void)_setupSubviewsWithType:(YQHChatMessageType)messageType isSender:(BOOL)isSender model:(YQHChatMessageModel*)model
 {
-    _avatarView = [[UIImageView alloc] init];
+    _avatarView = [HQChatAvatarView new];
     _avatarView.translatesAutoresizingMaskIntoConstraints = NO;
     _avatarView.backgroundColor = [UIColor clearColor];
     _avatarView.clipsToBounds = YES;
     _avatarView.userInteractionEnabled = YES;
     [self.contentView addSubview:_avatarView];
+    
+    //_avatarView.layer.cornerRadius=25;
+    
+//    _avatarMarkView.translatesAutoresizingMaskIntoConstraints = NO;
+//    _avatarMarkView.backgroundColor = [UIColor clearColor];
+//    _avatarMarkView.clipsToBounds = YES;
+//    _avatarMarkView.userInteractionEnabled = YES;
+//    [_avatarView addSubview:_avatarMarkView];
     
     //群聊显示姓名  单聊不显示姓名
     _nameLabel = [[UILabel alloc] init];

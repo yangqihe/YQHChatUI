@@ -8,6 +8,7 @@
 #import <UIKit/UIKit.h>
 #import "YQHBubbleView+Image.h"
 #import "YQHChatMessageDelegate.h"
+#import "HQChatAvatarView.h"
 
 @class YQHChatMessageModel;
 
@@ -17,7 +18,7 @@
 
 @property (strong, nonatomic) UIImage *recvBubbleBackgroundImage;
 
-@property (strong, nonatomic) UIImageView *avatarView;
+@property (strong, nonatomic) HQChatAvatarView *avatarView;
 
 @property (strong, nonatomic) YQHBubbleView *bubbleView;
 

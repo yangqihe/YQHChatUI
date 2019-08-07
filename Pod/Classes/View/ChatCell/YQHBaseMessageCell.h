@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "YQHChatMessageDelegate.h"
+#import "HQChatAvatarView.h"
 
 //@protocol YQHMessageCellDelegate;
 @class YQHBubbleView;
@@ -26,7 +27,7 @@
 
 @property (nonatomic, strong) UIActivityIndicatorView *activity;
 
-@property (strong, nonatomic) UIImageView *avatarView;
+@property (strong, nonatomic) HQChatAvatarView *avatarView;
 
 @property (strong, nonatomic) UIButton *statusButton;
 

@@ -9,6 +9,7 @@
 #import "YQHChatConversationCell.h"
 #import <Masonry/Masonry.h>
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "HQChatAvatarView.h"
 
 @interface YQHChatConversationCell()
 

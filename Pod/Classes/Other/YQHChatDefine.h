@@ -82,6 +82,8 @@ typedef enum {
 #define ChatMessageImageMinHeight    50
 #define ChatMessageImageMaxHeight    160
 
+//教师标志
+#define chatTeacherAvatarImageBg [UIImage imageNamed:@"image_top_teacher"]
 //聊天界面头像背景
 #define chatMessageAvatarImageBg [UIImage imageNamed:@"icon_user_parents_def"]
 //聊天界面消息发送失败提示图标
@@ -106,4 +108,5 @@ typedef enum {
 #define chatFileWord [UIImage imageNamed:@"chat_file_word"]
 #define chatFileUnknow [UIImage imageNamed:@"chat_file_unknow"]
 
+#define chatAvatarImageSize 45
 #endif /* YQHChatDefine_h */

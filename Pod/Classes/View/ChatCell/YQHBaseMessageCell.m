@@ -101,7 +101,7 @@ NSString *const YQHMessageCellIdentifierSendFile = @"YQHMessageCellSendFile";
         _bubbleView.textLabel.textColor = [UIColor whiteColor];
     }
     
-    _avatarView = [[UIImageView alloc] init];
+    _avatarView = [HQChatAvatarView new];
     _avatarView.translatesAutoresizingMaskIntoConstraints = NO;
     _avatarView.backgroundColor = [UIColor clearColor];
     _avatarView.clipsToBounds = YES;

@@ -35,6 +35,9 @@
  */
 @property (nonatomic, strong) NSMutableArray* userIds;
 
+//环信群的ID
+@property (nonatomic, strong) NSString* hxId;
+
 @end
 
 //groupId = 30294,
