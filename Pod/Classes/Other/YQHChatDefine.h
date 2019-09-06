@@ -109,4 +109,8 @@ typedef enum {
 #define chatFileUnknow [UIImage imageNamed:@"chat_file_unknow"]
 
 #define chatAvatarImageSize 45
+
+#define newFriendMsgConversation @"newFriendMsgConversation"
+
+
 #endif /* YQHChatDefine_h */

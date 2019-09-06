@@ -107,6 +107,9 @@
  */
 @property (nonatomic) NSInteger occupantsCount;
 
+//照片
+@property (nonatomic, strong) NSArray *avatars;
+
 /*!
  *  \~chinese
  *  获取群组实例，如果不存在则创建

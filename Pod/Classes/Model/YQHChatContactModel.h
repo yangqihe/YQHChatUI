@@ -13,12 +13,10 @@
  联系人
  */
 
-@interface YQHChatContactModel : NSObject
+@interface YQHChatContactModel : NSObject<NSCoding>
 
 //用户的UUID
 @property(nonatomic, assign) SInt64 uid;
-
-//@property (nonatomic, strong) NSString* appKey;
 
 //用户的唯一标识
 @property (nonatomic, strong) NSString* ID;
@@ -42,14 +40,6 @@
 
 //多姓名标签映射
 @property (nonatomic, strong) NSDictionary* tagMap;
-
-//introduce = "",
-//userName = "老师J自习老师",
-//accountNo = "",
-//id = "t12637",
-//imageUrl = "https://keyidaapp.bj.bcebos.com/user/user.png?authorization=bce-auth-v1/e64b229face34f67ae2298bbebab08ee/2018-10-17T08:46:20Z/-1/host/6e1c047db00d6f85253e3bc9ebb4842be93f673ac9331c1ffcb0a08a790bd910",
-//desc = "",
-//honor = "",
 
 @end
 

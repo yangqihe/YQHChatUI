@@ -18,8 +18,7 @@
 //姓名
 @property (strong, nonatomic) UILabel *titleLabel;
 
-//姓名
-@property (strong, nonatomic) UILabel *detailLabel;
+
 
 @end
 
@@ -73,9 +72,10 @@
 }
 
 -(void)setModel:(YQHChatContactModel *)model{
+    
     self.titleLabel.text=model.userName;
     
-    self.detailLabel.text=model.detailText;
+    //self.detailLabel.text=model.detailText;
     
     if ([model.imageUrl length] > 0){
         NSString* url=model.imageUrl;

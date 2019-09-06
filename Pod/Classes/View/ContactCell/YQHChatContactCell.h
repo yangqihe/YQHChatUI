@@ -13,5 +13,8 @@
 
 @property (strong, nonatomic) YQHChatContactModel *model;
 
+//姓名
+@property (strong, nonatomic) UILabel *detailLabel;
+
 @end
 

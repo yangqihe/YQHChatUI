@@ -44,6 +44,9 @@
  */
 @property (strong, nonatomic) NSString *avatarURLPath;
 
+//用户的头像
+@property (nonatomic, strong) NSArray* avatars;
+
 /**
  头像
  */
