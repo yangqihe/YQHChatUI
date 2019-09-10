@@ -14,7 +14,7 @@
  消息
  */
 
-@interface YQHChatMessageModel : NSObject
+@interface YQHChatMessageModel : NSObject<NSCoding>
 
 /*!
  *  消息的唯一标识符
@@ -151,16 +151,6 @@
 
 
 /*!
- *  附件缩略图下载状态
- */
-//@property (nonatomic) YQHChatThumbnailDownloadStatus status;
-
-/*!
- *  附件下载状态
- */
-//@property (nonatomic) YQHChatDownloadStatus status;
-
-/*!
  *  是否已读
  */
 @property (nonatomic) BOOL isRead;
@@ -176,7 +166,6 @@
  *  Key值类型必须是NSString, Value值类型必须是NSString或者 NSNumber类型的 BOOL, int, unsigned in, long long, double.
  */
 @property (nonatomic, copy) NSDictionary *ext;
-
 
 
 /*!
