@@ -8,6 +8,7 @@
 #ifndef YQHChatDefine_h
 #define YQHChatDefine_h
 
+#import "HQIBUtilities.h"
 
 /*!
  *  会话类型
@@ -58,11 +59,15 @@ typedef enum {
 
 #define YQHMessageCellPadding 10
 
-#define IS_iPhoneX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125,2436), [[UIScreen mainScreen] currentMode].size) : NO)
+//#define IS_iPhoneX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125,2436), [[UIScreen mainScreen] currentMode].size) : NO)
 
-#define SafeAreaBottomHeight ((IS_iPhoneX == YES) ? 34 : 0)
+
+#define HQ_IS_IPHONEX  [HQIBUtilities isIphoneX]
+
+
+#define SafeAreaBottomHeight ((HQ_IS_IPHONEX == YES) ? 34 : 0)
 /// 导航栏宏
-#define SafeAreaTopHeight ((IS_iPhoneX == YES) ? 88 : 64)
+#define SafeAreaTopHeight ((HQ_IS_IPHONEX == YES) ? 88 : 64)
 
 #define iPhoneX_BOTTOM_HEIGHT  ([UIScreen mainScreen].bounds.size.height==812?34:0)
 
