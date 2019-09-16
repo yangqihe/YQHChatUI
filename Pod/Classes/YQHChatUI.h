@@ -17,4 +17,6 @@
 #import "YQHChatDefine.h"
 #import "YQHPopMenuView.h"
 
-#endif /* YQHChatUI_h */
+#endif
+
+/* YQHChatUI_h */

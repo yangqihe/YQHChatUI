@@ -2,11 +2,11 @@ Pod::Spec.new do |spec|
 
   spec.name         = "YQHChatUI"
 
-  spec.version      = "0.0.32"
+  spec.version      = "0.0.33"
 
   spec.ios.deployment_target = '8.0'
 
-  spec.summary      = "聊天基础界面"
+  spec.summary      = "聊天基础界面.."
 
   spec.description  = "聊天基础界面，快速搭建属于自己的聊天界面。"
                    
