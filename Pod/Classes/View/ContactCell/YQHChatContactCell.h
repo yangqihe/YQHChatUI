@@ -13,7 +13,10 @@
 
 @property (strong, nonatomic) YQHChatContactModel *model;
 
-//姓名
+@property (strong, nonatomic) UIImageView *avatarView;
+
+@property (strong, nonatomic) UILabel *titleLabel;
+
 @property (strong, nonatomic) UILabel *detailLabel;
 
 @end

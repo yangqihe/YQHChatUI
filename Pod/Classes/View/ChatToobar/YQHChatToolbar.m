@@ -814,7 +814,7 @@ const CGFloat inputViewMaxHeight=150.0f;
             
             NSLog(@"麦克风关闭了");
             [[[UIAlertView alloc] initWithTitle:nil
-                                        message:[NSString stringWithFormat:@"亿起点需要访问您的麦克风。\n请启用麦克风-设置/隐私/麦克风"]
+                                        message:[NSString stringWithFormat:@"APP需要访问您的麦克风。\n请启用麦克风-设置/隐私/麦克风"]
                                        delegate:nil
                               cancelButtonTitle:@"好"
                               otherButtonTitles:nil] show];

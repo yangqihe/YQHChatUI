@@ -98,22 +98,6 @@
     }];
     
     
-    
-    
-    _imageViewPlus=[[UIImageView alloc] init];
-    _imageViewPlus.image=[UIImage imageNamed:@"chat_group_add_member"];
-    _imageViewPlus.userInteractionEnabled=YES;
-    _imageViewPlus.tag=501;
-    [_imageViewPlus addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickImage:)]];
-    [self.contentView addSubview:_imageViewPlus];
-    
-    _imageViewMinus=[[UIImageView alloc] init];
-    _imageViewMinus.tag=502;
-    _imageViewMinus.userInteractionEnabled=YES;
-    _imageViewMinus.image=[UIImage imageNamed:@"chat_group_del_member"];
-    [_imageViewMinus addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickImage:)]];
-    [self.contentView addSubview:_imageViewMinus];
-    
     CGFloat cellWidth=50;
     CGFloat marginTop=8;//距离顶部距离
     CGFloat marginLeft=25;//距离左边距离
@@ -466,6 +450,22 @@
         make.width.equalTo(@(cellWidth+20));
     }];
     
+    
+    
+    _imageViewPlus=[[UIImageView alloc] init];
+    _imageViewPlus.image=[UIImage imageNamed:@"chat_group_add_member"];
+    _imageViewPlus.userInteractionEnabled=YES;
+    _imageViewPlus.tag=501;
+    [_imageViewPlus addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickImage:)]];
+    [self.contentView addSubview:_imageViewPlus];
+    
+    _imageViewMinus=[[UIImageView alloc] init];
+    _imageViewMinus.tag=502;
+    _imageViewMinus.userInteractionEnabled=YES;
+    _imageViewMinus.image=[UIImage imageNamed:@"chat_group_del_member"];
+    [_imageViewMinus addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickImage:)]];
+    [self.contentView addSubview:_imageViewMinus];
+    
 }
 
 -(void)clickImage:(UITapGestureRecognizer *)recognizer{
@@ -475,9 +475,11 @@
             [_groupViewDelegate imageClick:[NSString stringWithFormat:@"%d",index]];
         }
     }else{
-        NSString* ID = _groupMembers[index];
-        if (_groupViewDelegate) {
-            [_groupViewDelegate imageClick:ID];
+        if (index<_groupMembers.count) {
+            NSString* ID = _groupMembers[index];
+            if (_groupViewDelegate) {
+                [_groupViewDelegate imageClick:ID];
+            }
         }
     }
 }

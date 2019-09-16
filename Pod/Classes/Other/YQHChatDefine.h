@@ -62,8 +62,14 @@ typedef enum {
 //#define IS_iPhoneX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125,2436), [[UIScreen mainScreen] currentMode].size) : NO)
 
 
-#define HQ_IS_IPHONEX  [HQIBUtilities isIphoneX]
+//#define HQ_IS_IPHONEX  [HQIBUtilities isIphoneX]
 
+#define HQ_IS_IPHONEX \
+({BOOL isPhoneX = NO;\
+if (@available(iOS 11.0, *)) {\
+isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bottom > 0.0;\
+}\
+(isPhoneX);})
 
 #define SafeAreaBottomHeight ((HQ_IS_IPHONEX == YES) ? 34 : 0)
 /// 导航栏宏

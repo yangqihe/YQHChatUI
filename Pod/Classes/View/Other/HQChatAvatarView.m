@@ -25,6 +25,7 @@
 
 - (void)layoutSubviews{
     [super layoutSubviews];
+    _avatarView.layer.masksToBounds=YES;
     _avatarView.layer.cornerRadius=_avatarView.frame.size.width/2;
     [_avatarView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.mas_centerX);
