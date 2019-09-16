@@ -2,7 +2,7 @@ Pod::Spec.new do |spec|
 
   spec.name         = "YQHChatUI"
 
-  spec.version      = "0.0.31"
+  spec.version      = "0.0.32"
 
   spec.ios.deployment_target = '8.0'
 
