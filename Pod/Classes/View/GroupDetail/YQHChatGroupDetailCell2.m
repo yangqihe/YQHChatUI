@@ -52,10 +52,15 @@
     [_groupNameTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(self.contentView.mas_left).offset(15);
         make.top.mas_equalTo(self.contentView.mas_top).offset(22.5);
+        make.width.equalTo(@80);
     }];
     
     
     _groupNameLabel = [[UILabel alloc] init];
+    _groupNameLabel.userInteractionEnabled=YES;
+    UITapGestureRecognizer* gesture111=[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(gesture111)];
+    [_groupNameLabel addGestureRecognizer:gesture111];
+    
     [self.contentView addSubview:_groupNameLabel];
     _groupNameLabel.text=@"";
     _groupNameLabel.textAlignment=NSTextAlignmentRight;
@@ -63,9 +68,12 @@
     _groupNameLabel.textColor=[UIColor colorWithRed:102/255.0f green:102/255.0f blue:102/255.0f alpha:1.0];//RGB(102, 102, 102);
     [_groupNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         //make.left.mas_equalTo(self.contentView.left).offset(15);
-        make.top.mas_equalTo(self.contentView.mas_top).offset(22.5);
-        make.width.equalTo(@150);
+        //make.top.mas_equalTo(self.contentView.mas_top).offset(22.5);
+        //make.width.equalTo(@200);
+        make.left.equalTo(self.groupNameTitleLabel.mas_right).offset(10);
         make.right.mas_equalTo(self.contentView.mas_right).offset(-15);
+        make.height.equalTo(@59);
+        make.centerY.equalTo(self.groupNameTitleLabel.mas_centerY);
     }];
     
     UIView *line1=[[UIView alloc] init];//WithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 0.5)
@@ -127,17 +135,7 @@
         make.top.mas_equalTo(self.topStateView.mas_bottom).offset(17);
     }];
     
-    UILabel *notDisturb = [[UILabel alloc] init];
-    [self.contentView addSubview:notDisturb];
-    notDisturb.text=@"消息免打扰";
-    notDisturb.font=[UIFont systemFontOfSize:15];
-    notDisturb.textColor=[UIColor colorWithRed:51/255.0f green:51/255.0f blue:51/255.0f alpha:1.0];//RGB(51, 51, 51);
-    [notDisturb mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(self.contentView.mas_left).offset(15);
-        make.height.mas_equalTo(31);
-        make.top.mas_equalTo(line2.mas_bottom).offset(17);
-    }];
-    
+
     
     self.notDisturbSwitch = [[UISwitch alloc] init];
     [self.contentView addSubview:self.notDisturbSwitch];
@@ -146,6 +144,24 @@
         make.height.mas_equalTo(31);
         make.right.mas_equalTo(self.contentView.mas_right).offset(-15);
         make.top.mas_equalTo(line2.mas_bottom).offset(17);
+    }];
+    
+    
+    
+    UILabel *notDisturb = [[UILabel alloc] init];
+    notDisturb.userInteractionEnabled=YES;
+    UITapGestureRecognizer* gesture11=[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(gesture11)];
+    [notDisturb addGestureRecognizer:gesture11];
+    
+    [self.contentView addSubview:notDisturb];
+    notDisturb.text=@"消息免打扰";
+    notDisturb.font=[UIFont systemFontOfSize:15];
+    notDisturb.textColor=[UIColor colorWithRed:51/255.0f green:51/255.0f blue:51/255.0f alpha:1.0];//RGB(51, 51, 51);
+    [notDisturb mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(self.contentView.mas_left).offset(15);
+        make.height.mas_equalTo(31);
+        make.top.mas_equalTo(line2.mas_bottom).offset(17);
+        make.right.equalTo(self.notDisturbSwitch.mas_left);
     }];
     
     [self.notDisturbSwitch addTarget:self action:@selector(notDisturbSwitchChanged:) forControlEvents:(UIControlEventValueChanged)];
@@ -188,6 +204,18 @@
         make.left.mas_equalTo(self.contentView.mas_left).offset(15);
         make.top.mas_equalTo(line.mas_bottom).offset(22.5);
     }];
+}
+
+-(void)gesture111{
+    if (_itemDelegate) {
+        [_itemDelegate itemClick:101];
+    }
+}
+
+-(void)gesture11{
+    if (_itemDelegate) {
+        [_itemDelegate itemClick:102];
+    }
 }
 
 -(void)makeTop{
