@@ -134,8 +134,8 @@
     [self.badgeView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(@16);
         make.height.equalTo(@16);
-        make.right.equalTo(self.avatarView1.mas_right);
-        make.top.equalTo(self.contentView.mas_top).offset(10);
+        make.right.equalTo(self.avatarView1.mas_right).offset(4);
+        make.top.equalTo(self.avatarView1.mas_top).offset(4);
     }];
     
     
